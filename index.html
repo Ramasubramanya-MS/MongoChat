@@ -40,11 +40,11 @@
 		$("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
     }
     function getMessages() {
-        $.get('https://obscure-earth-49976.herokuapp.com//messages', (data) => {
+        $.get('https://obscure-earth-49976.herokuapp.com/messages', (data) => {
             data.forEach(addMessage);
         })
     }
     function postMessage(message) {
-        $.post('https://obscure-earth-49976.herokuapp.com//messages', message)
+        $.post('https://obscure-earth-49976.herokuapp.com/messages', message)
     }
 </script>
