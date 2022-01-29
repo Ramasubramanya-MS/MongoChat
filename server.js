@@ -4,7 +4,7 @@ var app = express()
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
 var mongoose = require('mongoose')
-
+var port = process.env.PORT || 5000
 app.use(express.static(__dirname))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended : false}))
@@ -13,8 +13,8 @@ app.use(bodyParser.urlencoded({extended : false}))
 //const dbUrl = Removing connect url for GitHub Upload.
 const dbUrl = "mongodb+srv://admin:admin@mongo-node.jeyks.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-var server = http.listen(3001, () => {
-	console.log('Server is listening on port ', server.address().port)
+var server = http.listen(port, () => {
+	console.log('Server is listening on port %d', port)
 })
 
 io.on('connection', (socket) => {
